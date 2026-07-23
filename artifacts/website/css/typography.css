@@ -1,0 +1,177 @@
+/* ================================================
+   ALBA TRADING CO., LTD — Typography System
+   ================================================ */
+
+/* --- BASE BODY --- */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 400;
+  color: var(--text-body-on-light);
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+}
+
+/* --- Myanmar Language Override --- */
+body.lang-myanmar {
+  font-family: var(--font-myanmar);
+}
+body.lang-myanmar .font-heading,
+body.lang-myanmar h1,
+body.lang-myanmar h2,
+body.lang-myanmar h3,
+body.lang-myanmar h4 {
+  font-family: var(--font-myanmar);
+}
+
+/* --- HEADING SCALE --- */
+.display-1, .hero-headline {
+  font-family: var(--font-heading);
+  font-size: var(--text-display-1);
+  font-weight: 800;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+
+.display-2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-display-2);
+  font-weight: 800;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+}
+
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
+  font-weight: 700;
+  line-height: var(--lh-subhead);
+  letter-spacing: var(--ls-heading);
+}
+
+h4, .h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: 600;
+  line-height: var(--lh-subhead);
+}
+
+h5, .h5 {
+  font-family: var(--font-heading);
+  font-size: var(--text-h5);
+  font-weight: 600;
+  line-height: var(--lh-subhead);
+}
+
+h6, .h6 {
+  font-family: var(--font-body);
+  font-size: var(--text-h6);
+  font-weight: 600;
+  line-height: var(--lh-subhead);
+}
+
+/* --- BODY TEXT --- */
+.text-lg  { font-size: var(--text-body-lg); line-height: var(--lh-body); }
+.text-base { font-size: var(--text-body); }
+.text-sm  { font-size: var(--text-body-sm); line-height: 1.6; }
+.text-xs  { font-size: var(--text-caption); line-height: 1.5; }
+.text-spec { font-family: var(--font-mono); font-size: var(--text-spec); }
+
+/* --- WEIGHT HELPERS --- */
+.font-regular    { font-weight: 400; }
+.font-medium     { font-weight: 500; }
+.font-semibold   { font-weight: 600; }
+.font-bold       { font-weight: 700; }
+.font-extrabold  { font-weight: 800; }
+
+/* --- COLOR HELPERS --- */
+.text-white        { color: var(--text-on-dark); }
+.text-silver       { color: var(--silver-light); }
+.text-silver-mid   { color: var(--silver-primary); }
+.text-gold         { color: var(--text-gold); }
+.text-navy         { color: var(--navy-primary); }
+.text-steel        { color: var(--steel-gray-dark); }
+.text-steel-mid    { color: var(--steel-gray-mid); }
+
+/* --- SECTION EYEBROW LABEL --- */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  margin-bottom: var(--sp-4);
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold-primary);
+  flex-shrink: 0;
+}
+
+/* --- SECTION HEADER --- */
+.section-header {
+  margin-bottom: var(--sp-12);
+}
+
+.section-header .section-title {
+  color: var(--text-headline-on-light);
+  margin-bottom: var(--sp-4);
+}
+
+.section-header .section-desc {
+  font-size: var(--text-body-lg);
+  color: var(--text-caption-on-light);
+  max-width: 640px;
+  line-height: var(--lh-body);
+}
+
+/* On dark sections */
+.section-dark .section-header .section-title { color: var(--text-on-dark); }
+.section-dark .section-header .section-desc  { color: var(--text-body-on-dark); }
+.section-dark .section-header .section-eyebrow { color: var(--gold-primary); }
+
+/* --- SPEC / MONO --- */
+.spec-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-spec);
+  color: var(--steel-gray-dark);
+  letter-spacing: 0.02em;
+}
+
+/* --- BREADCRUMB --- */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--text-body-sm);
+  color: var(--silver-primary);
+  font-weight: 500;
+}
+
+.breadcrumb a:hover { color: var(--gold-primary); }
+.breadcrumb .breadcrumb-sep { color: var(--navy-border); }
+.breadcrumb .breadcrumb-current { color: var(--gold-light); }

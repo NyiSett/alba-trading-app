@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | AlbA Trading Co., Ltd</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { background: #0A1628; }
+    .not-found-section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--sp-8);
+    }
+    .not-found-code {
+      font-family: var(--font-heading);
+      font-size: clamp(80px, 20vw, 180px);
+      font-weight: 800;
+      line-height: 1;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: var(--sp-6);
+    }
+    .not-found-title {
+      font-family: var(--font-heading);
+      font-size: var(--text-h2);
+      font-weight: 700;
+      color: var(--text-on-dark);
+      margin-bottom: var(--sp-4);
+    }
+    .not-found-desc {
+      color: var(--text-body-on-dark);
+      max-width: 480px;
+      line-height: 1.7;
+      margin: 0 auto var(--sp-10);
+    }
+    .not-found-links {
+      display: flex;
+      gap: var(--sp-4);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .not-found-logo { margin-bottom: var(--sp-12); }
+  </style>
+</head>
+<body>
+<section class="not-found-section">
+  <div>
+    <div class="not-found-logo">
+      <a href="/"><img src="/images/brand/alba-logo.svg" alt="AlbA Trading Co., Ltd" height="44" width="180"></a>
+    </div>
+    <div class="not-found-code">404</div>
+    <h1 class="not-found-title">Page Not Found</h1>
+    <p class="not-found-desc">Sorry, the page you are looking for doesn't exist or has been moved. Let us help you find what you need.</p>
+    <div class="not-found-links">
+      <a href="/" class="btn btn-primary">← Go to Home</a>
+      <a href="/#products" class="btn btn-ghost">Browse Products</a>
+      <a href="/pages/contact.html" class="btn btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+</body>
+</html>

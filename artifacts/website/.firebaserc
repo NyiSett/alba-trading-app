@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "alba-trading-mm"
+  },
+  "targets": {
+    "alba-trading-mm": {
+      "hosting": {
+        "website": [
+          "alba-trading-mm"
+        ]
+      }
+    }
+  }
+}

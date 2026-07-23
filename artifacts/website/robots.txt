@@ -1,0 +1,11 @@
+# AlbA Trading Co., Ltd — www.albatradingmm.com
+# Robots.txt — Controls search engine crawling
+
+User-agent: *
+Allow: /
+Disallow: /dist/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://www.albatradingmm.com/sitemap.xml

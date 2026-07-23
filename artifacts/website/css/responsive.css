@@ -1,0 +1,202 @@
+/* ================================================
+   ALBA TRADING CO., LTD — Responsive Design
+   Mobile-first breakpoints
+   ================================================ */
+
+/* ========================
+   TABLET — 1024px
+   ======================== */
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 64px;
+    --col-gap: 20px;
+  }
+
+  .nav-links { gap: var(--sp-6); padding-left: var(--sp-5); }
+  .nav-cta   { padding: 10px 16px; font-size: 12px; }
+
+  .products-grid   { grid-template-columns: repeat(2, 1fr); }
+  .features-grid   { grid-template-columns: repeat(2, 1fr); }
+  .quality-grid    { grid-template-columns: repeat(2, 1fr); }
+  .application-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .footer-top { grid-template-columns: 1fr 1fr; gap: var(--sp-8); }
+
+  .about-grid { grid-template-columns: 1fr; gap: var(--sp-10); }
+  .stats-grid { flex-direction: row; }
+
+  .nexframe-grid { grid-template-columns: 1fr; }
+  .nexframe-img  { max-width: 500px; }
+
+  .supply-chain-grid { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .supply-arrow      { display: none; }
+
+  .office-info-grid  { grid-template-columns: 1fr; }
+
+  .contact-channels-grid { grid-template-columns: repeat(2, 1fr); }
+  .messenger-grid        { grid-template-columns: repeat(2, 1fr); }
+
+  .product-gallery { grid-template-columns: 1fr; }
+  .gallery-thumbs  { grid-template-columns: repeat(4, 1fr); }
+
+  .product-overview-grid  { grid-template-columns: 1fr; }
+  .product-inquiry-grid   { grid-template-columns: 1fr; }
+
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ========================
+   SMALL TABLET — 768px
+   ======================== */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+    --section-padding: 56px;
+    --section-padding-sm: 36px;
+    --col-gap: 16px;
+  }
+
+  /* Nav: hide links, show hamburger */
+  .nav-links,
+  .nav-actions { display: none; }
+  .mobile-menu-toggle { display: flex; }
+
+  /* Mobile sticky bar appears */
+  .mobile-sticky-bar { display: flex; }
+
+  /* Add bottom padding to body so sticky bar doesn't overlap content */
+  body { padding-bottom: 60px; }
+  body.has-sticky { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
+
+  /* Hero */
+  .hero-section { min-height: 100svh; }
+  .hero-overlay {
+    background: rgba(10, 22, 40, 0.88);
+  }
+  .hero-content { max-width: 100%; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns .btn { width: 100%; text-align: center; }
+
+  /* Products grid → 1 col */
+  .products-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+
+  /* Features → 1 col */
+  .features-grid { grid-template-columns: 1fr; }
+
+  /* Quality → 1 col */
+  .quality-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Applications → 2 col */
+  .application-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* About stats */
+  .stats-grid { flex-direction: column; }
+
+  /* Footer */
+  .footer-top { grid-template-columns: 1fr; gap: var(--sp-8); }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .footer-bottom-links { justify-content: center; }
+
+  /* Contact */
+  .contact-channels-grid { grid-template-columns: 1fr; }
+  .messenger-grid        { grid-template-columns: repeat(2, 1fr); }
+
+  /* Form */
+  .form-row { grid-template-columns: 1fr; }
+
+  /* Product hero */
+  .product-hero { min-height: 55vh; }
+
+  /* Gallery */
+  .gallery-thumbs { grid-template-columns: repeat(3, 1fr); }
+
+  /* Spec table */
+  .spec-table-wrap { overflow-x: scroll; }
+
+  /* Trust bar */
+  .trust-bar-inner { gap: var(--sp-4); }
+  .trust-item { flex-direction: column; text-align: center; border-right: none; border-bottom: 1px solid var(--navy-border); }
+  .trust-item:last-child { border-bottom: none; }
+
+  /* Inquiry banner */
+  .inquiry-banner .banner-title { font-size: var(--text-h2); }
+  .inquiry-banner-btns { flex-direction: column; align-items: center; }
+  .inquiry-banner-btns .btn { width: 100%; max-width: 340px; }
+
+  /* Back to top */
+  .back-to-top { bottom: calc(var(--sp-6) + 60px + env(safe-area-inset-bottom)); }
+
+  /* Related products */
+  .related-grid { grid-template-columns: 1fr; }
+}
+
+/* ========================
+   MOBILE — 480px
+   ======================== */
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 48px;
+  }
+
+  .container { padding-left: var(--sp-5); padding-right: var(--sp-5); }
+
+  .hero-section { min-height: 100svh; }
+
+  .quality-grid { grid-template-columns: 1fr; }
+
+  .application-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .gallery-thumbs { grid-template-columns: repeat(2, 1fr); }
+
+  .messenger-grid { grid-template-columns: 1fr; }
+
+  .supply-chain-grid { gap: var(--sp-2); }
+
+  .footer-messengers { gap: var(--sp-2); }
+
+  .products-grid { max-width: 100%; }
+
+  .breadcrumb { flex-wrap: wrap; }
+}
+
+/* ========================
+   SMALLEST MOBILE — 360px
+   ======================== */
+@media (max-width: 360px) {
+  :root { --section-padding: 40px; }
+  .hero-content { padding-top: var(--sp-12); padding-bottom: var(--sp-12); }
+  .application-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ========================
+   LARGE DESKTOP — 1440px+
+   ======================== */
+@media (min-width: 1440px) {
+  :root { --section-padding: 96px; }
+  .hero-headline { max-width: 750px; }
+}
+
+/* ========================
+   PRINT STYLES
+   ======================== */
+@media print {
+  .site-nav,
+  .mobile-sticky-bar,
+  .back-to-top,
+  .hero-scroll-indicator,
+  .inquiry-banner,
+  .mobile-overlay { display: none !important; }
+
+  body { color: #000; background: #fff; padding-bottom: 0; }
+  a { color: #000; text-decoration: underline; }
+  .section-dark { background: #f0f0f0 !important; }
+  .section-dark * { color: #000 !important; }
+}
+
+/* ========================
+   REDUCED MOTION
+   ======================== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .hero-scroll-indicator { animation: none; }
+}

@@ -1,0 +1,154 @@
+/* ================================================
+   ALBA TRADING CO., LTD — CSS Design Tokens
+   Approved UX/UI Design Blueprint v1.0
+   www.albatradingmm.com
+   ================================================ */
+
+:root {
+  /* ---- NAVY COLOR SYSTEM ---- */
+  --navy-deepest:  #060D1A;
+  --navy-primary:  #0A1628;
+  --navy-mid:      #0D2045;
+  --navy-elevated: #112654;
+  --navy-panel:    #1A3365;
+  --navy-border:   #243F78;
+
+  /* ---- GOLD ACCENT SYSTEM ---- */
+  --gold-deep:    #8B6914;
+  --gold-primary: #C9A84C;
+  --gold-mid:     #D4B45E;
+  --gold-light:   #E8C96B;
+  --gold-pale:    #F5E9C0;
+
+  /* ---- METALLIC GOLD GRADIENT ---- */
+  --gold-gradient: linear-gradient(
+    135deg,
+    #8B6914  0%,
+    #C9A84C 35%,
+    #E8C96B 55%,
+    #C9A84C 75%,
+    #8B6914 100%
+  );
+
+  /* ---- SILVER / STEEL SYSTEM ---- */
+  --silver-primary:    #A8B4C4;
+  --silver-light:      #C8D0DA;
+  --steel-gray-dark:   #3D4A5C;
+  --steel-gray-mid:    #6B7A8E;
+  --steel-gray-light:  #9AA5B4;
+
+  /* ---- LIGHT SURFACE SYSTEM ---- */
+  --surface-white:    #FFFFFF;
+  --surface-off-white: #F7F8FA;
+  --surface-pale:     #EEF1F5;
+  --surface-border:   #DDE2EA;
+
+  /* ---- SEMANTIC TEXT COLORS ---- */
+  --text-on-dark:           #FFFFFF;
+  --text-body-on-dark:      #C8D0DA;
+  --text-caption-on-dark:   #A8B4C4;
+  --text-headline-on-light: #0A1628;
+  --text-body-on-light:     #3D4A5C;
+  --text-caption-on-light:  #6B7A8E;
+  --text-gold:              #C9A84C;
+  --text-link:              #C9A84C;
+  --text-link-hover:        #E8C96B;
+  --text-placeholder:       #9AA5B4;
+
+  /* ---- FUNCTIONAL COLORS ---- */
+  --color-success:    #2D6A4F;
+  --color-error:      #8B2E2E;
+  --color-warning:    #B8860B;
+  --color-focus-ring: rgba(232, 201, 107, 0.4);
+
+  /* ---- TYPOGRAPHY FONTS ---- */
+  --font-heading: 'Barlow', 'Inter', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --font-myanmar: 'Noto Sans Myanmar', sans-serif;
+  --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+
+  /* ---- FONT SIZE SCALE ---- */
+  --text-display-1: clamp(3rem, 6vw, 5rem);
+  --text-display-2: clamp(2.5rem, 5vw, 4rem);
+  --text-h1:   clamp(2rem, 4vw, 3rem);
+  --text-h2:   clamp(1.75rem, 3vw, 2.25rem);
+  --text-h3:   clamp(1.375rem, 2.5vw, 1.75rem);
+  --text-h4:   clamp(1.125rem, 2vw, 1.375rem);
+  --text-h5:   1.125rem;
+  --text-h6:   1rem;
+  --text-body-lg: 1.125rem;
+  --text-body:    1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-spec:    0.9375rem;
+
+  /* ---- LINE HEIGHT SYSTEM ---- */
+  --lh-display: 1.1;
+  --lh-heading: 1.2;
+  --lh-subhead: 1.3;
+  --lh-body:    1.65;
+  --lh-myanmar: 1.85;
+
+  /* ---- LETTER SPACING ---- */
+  --ls-display:  -0.02em;
+  --ls-heading:  -0.01em;
+  --ls-body:      0;
+  --ls-eyebrow:   0.12em;
+  --ls-btn:       0.08em;
+  --ls-label:     0.1em;
+
+  /* ---- SPACING SCALE (8px base) ---- */
+  --sp-1:  0.25rem;   /* 4px  */
+  --sp-2:  0.5rem;    /* 8px  */
+  --sp-3:  0.75rem;   /* 12px */
+  --sp-4:  1rem;      /* 16px */
+  --sp-5:  1.25rem;   /* 20px */
+  --sp-6:  1.5rem;    /* 24px */
+  --sp-8:  2rem;      /* 32px */
+  --sp-10: 2.5rem;    /* 40px */
+  --sp-12: 3rem;      /* 48px */
+  --sp-16: 4rem;      /* 64px */
+  --sp-20: 5rem;      /* 80px */
+  --sp-24: 6rem;      /* 96px */
+
+  /* ---- LAYOUT ---- */
+  --container-max:     1280px;
+  --container-inner:   1200px;
+  --nav-height:        72px;
+  --section-padding:   80px;
+  --section-padding-sm: 48px;
+  --col-gap:           24px;
+  --row-gap:           24px;
+
+  /* ---- BORDER RADIUS ---- */
+  --radius-btn:   4px;
+  --radius-card:  8px;
+  --radius-lg:    12px;
+  --radius-img:   4px;
+  --radius-input: 4px;
+  --radius-pill:  100px;
+  --radius-circle: 50%;
+
+  /* ---- SHADOWS ---- */
+  --shadow-card:        0 4px 20px rgba(10, 22, 40, 0.08);
+  --shadow-card-hover:  0 8px 32px rgba(10, 22, 40, 0.14);
+  --shadow-elevated:    0 16px 48px rgba(10, 22, 40, 0.24);
+  --shadow-dropdown:    0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-gold:        0 4px 16px rgba(201, 168, 76, 0.30);
+  --shadow-gold-hover:  0 6px 24px rgba(201, 168, 76, 0.45);
+  --shadow-nav:         0 2px 24px rgba(6, 13, 26, 0.50);
+
+  /* ---- TRANSITIONS ---- */
+  --tr-fast:    0.18s ease;
+  --tr-std:     0.25s ease;
+  --tr-smooth:  0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---- Z-INDEX SCALE ---- */
+  --z-base:      1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-mobile-bar: 300;
+  --z-nav:      900;
+  --z-lightbox: 1000;
+  --z-overlay:  1100;
+}
