@@ -1,0 +1,61 @@
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Asset caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML — always revalidate
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control    = "no-cache, no-store, must-revalidate"
+    X-Frame-Options  = "DENY"
+
+# Clean URLs: serve .html for extension-less paths
+[[redirects]]
+  from   = "/pages/products/gi-hollow-pipe"
+  to     = "/pages/products/gi-hollow-pipe.html"
+  status = 200
+
+[[redirects]]
+  from   = "/pages/products/nexframe"
+  to     = "/pages/products/nexframe.html"
+  status = 200
+
+[[redirects]]
+  from   = "/pages/products/glass"
+  to     = "/pages/products/glass.html"
+  status = 200
+
+[[redirects]]
+  from   = "/pages/products/h-beam"
+  to     = "/pages/products/h-beam.html"
+  status = 200
+
+[[redirects]]
+  from   = "/pages/contact"
+  to     = "/pages/contact.html"
+  status = 200
+
+# 404 fallback
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404

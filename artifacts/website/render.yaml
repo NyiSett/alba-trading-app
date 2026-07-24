@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: alba-trading-website
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: false
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: "/*.js"
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+      - path: "/*.css"
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    routes:
+      - type: rewrite
+        source: /pages/products/gi-hollow-pipe
+        destination: /pages/products/gi-hollow-pipe.html
+      - type: rewrite
+        source: /pages/products/nexframe
+        destination: /pages/products/nexframe.html
+      - type: rewrite
+        source: /pages/products/glass
+        destination: /pages/products/glass.html
+      - type: rewrite
+        source: /pages/products/h-beam
+        destination: /pages/products/h-beam.html
+      - type: rewrite
+        source: /pages/contact
+        destination: /pages/contact.html

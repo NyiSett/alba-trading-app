@@ -11,12 +11,12 @@ paths = [ "/" ]
 localPort = 19161
 
 [services.development]
-run = "pnpm --filter @workspace/website run dev"
+run = "npm --prefix artifacts/website install --silent && npm --prefix artifacts/website run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/website", "run", "build" ]
+build = [ "sh", "-c", "npm --prefix artifacts/website install && npm --prefix artifacts/website run build" ]
 serve = "static"
-publicDir = "artifacts/website/dist/public"
+publicDir = "artifacts/website/dist"
 
 [[services.production.rewrites]]
 from = "/*"

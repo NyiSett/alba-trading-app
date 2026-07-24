@@ -1,0 +1,28 @@
+{
+  "buildCommand": "npm --prefix artifacts/website install && npm --prefix artifacts/website run build",
+  "outputDirectory": "artifacts/website/dist",
+  "installCommand": "echo 'dependencies installed per buildCommand'",
+  "framework": null,
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(?:js|css|woff2|webp|svg|png|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/pages/products/gi-hollow-pipe", "destination": "/pages/products/gi-hollow-pipe.html" },
+    { "source": "/pages/products/nexframe",        "destination": "/pages/products/nexframe.html"       },
+    { "source": "/pages/products/glass",           "destination": "/pages/products/glass.html"          },
+    { "source": "/pages/products/h-beam",          "destination": "/pages/products/h-beam.html"         },
+    { "source": "/pages/contact",                  "destination": "/pages/contact.html"                 }
+  ],
+  "cleanUrls": true
+}

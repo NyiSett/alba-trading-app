@@ -1,54 +1,53 @@
+import { fileURLToPath } from 'url';
 import path from 'path';
 import { defineConfig } from 'vite';
-import runtimeErrorOverlay from '@replit/vite-plugin-runtime-error-modal';
 
-const rawPort = process.env.PORT;
-if (!rawPort) throw new Error('PORT environment variable is required but was not provided.');
-const port = Number(rawPort);
-if (Number.isNaN(port) || port <= 0) throw new Error(`Invalid PORT value: "${rawPort}"`);
+// Cross-platform __dirname replacement (works on Node 20+ and any platform)
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const basePath = process.env.BASE_PATH ?? '/';
+// PORT is optional: defaults to 5173 for npm run dev, respects env var when set (e.g. Replit, Render)
+const port = Number(process.env.PORT) || 5173;
 
 export default defineConfig({
-  base: basePath,
-  plugins: [
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== 'production' && process.env.REPL_ID !== undefined
-      ? [
-          await import('@replit/vite-plugin-cartographer').then((m) =>
-            m.cartographer({ root: path.resolve(import.meta.dirname, '..') }),
-          ),
-          await import('@replit/vite-plugin-dev-banner').then((m) => m.devBanner()),
-        ]
-      : []),
-  ],
-  root: path.resolve(import.meta.dirname),
-  publicDir: path.resolve(import.meta.dirname, 'assets'),
+  // BASE_PATH lets deployment platforms serve from a sub-path; defaults to root
+  base: process.env.BASE_PATH ?? '/',
+
+  root: __dirname,
+
+  // assets/ is the static public directory (images, icons, etc.)
+  publicDir: path.join(__dirname, 'assets'),
+
   build: {
-    outDir: path.resolve(import.meta.dirname, 'dist/public'),
+    // Output to dist/ — consumed by Vercel, Netlify, Render, Firebase Hosting
+    outDir: path.join(__dirname, 'dist'),
     emptyOutDir: true,
     rollupOptions: {
+      // Multi-page application: each HTML file is an independent entry point
       input: {
-        main: path.resolve(import.meta.dirname, 'index.html'),
-        'gi-hollow-pipe': path.resolve(import.meta.dirname, 'pages/products/gi-hollow-pipe.html'),
-        nexframe: path.resolve(import.meta.dirname, 'pages/products/nexframe.html'),
-        glass: path.resolve(import.meta.dirname, 'pages/products/glass.html'),
-        'h-beam': path.resolve(import.meta.dirname, 'pages/products/h-beam.html'),
-        contact: path.resolve(import.meta.dirname, 'pages/contact.html'),
-        '404': path.resolve(import.meta.dirname, '404.html'),
+        main:           path.join(__dirname, 'index.html'),
+        'gi-hollow-pipe': path.join(__dirname, 'pages/products/gi-hollow-pipe.html'),
+        nexframe:       path.join(__dirname, 'pages/products/nexframe.html'),
+        glass:          path.join(__dirname, 'pages/products/glass.html'),
+        'h-beam':       path.join(__dirname, 'pages/products/h-beam.html'),
+        contact:        path.join(__dirname, 'pages/contact.html'),
+        '404':          path.join(__dirname, '404.html'),
       },
     },
   },
+
   server: {
     port,
-    strictPort: true,
+    // Don't throw if port is taken on a dev machine
+    strictPort: false,
     host: '0.0.0.0',
-    allowedHosts: true,
+    // 'all' allows any host (required for Replit proxying and container environments)
+    allowedHosts: 'all',
     fs: { strict: false },
   },
+
   preview: {
     port,
     host: '0.0.0.0',
-    allowedHosts: true,
+    allowedHosts: 'all',
   },
 });

@@ -1,22 +1,56 @@
 {
-  "extends": "../../tsconfig.base.json",
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "compilerOptions": {
-    "noEmit": true,
-    "jsx": "preserve",
-    "lib": ["esnext", "dom", "dom.iterable"],
+    // Target modern JS — all deployment platforms use Node 20+ / modern browsers
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+
+    // Module system
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    // JSX (React components in src/)
+    "jsx": "react-jsx",
+
+    // Strict checks (matches the former tsconfig.base.json settings)
+    "strict": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": false,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": false,
+    "noImplicitOverride": false,
+
+    // Module features
     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
-    "moduleResolution": "bundler",
+    "isolatedModules": true,
+
+    // Output
+    "noEmit": true,
+
+    // Skip third-party type errors
+    "skipLibCheck": true,
+
+    // Ambient types
     "types": ["node", "vite/client"],
+
+    // Path alias — @/foo resolves to src/foo
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "references": [
-    {
-      "path": "../../lib/api-client-react"
-    }
+  "include": [
+    "src/**/*",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }
