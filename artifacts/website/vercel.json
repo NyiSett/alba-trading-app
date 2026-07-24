@@ -1,11 +1,12 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": null,
   "installCommand": "npm install",
+  "outputDirectory": "dist",
+  "framework": "vite",
+
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/:path*",
       "headers": [
         {
           "key": "Cache-Control",
@@ -14,16 +15,7 @@
       ]
     },
     {
-      "source": "/(.*)\\.(?:js|css|woff2|woff|ttf|eot|webp|png|svg|ico)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.html",
+      "source": "/:path*.html",
       "headers": [
         {
           "key": "Cache-Control",
@@ -40,6 +32,7 @@
       ]
     }
   ],
+
   "rewrites": [
     {
       "source": "/pages/products/gi-hollow-pipe",
@@ -62,5 +55,6 @@
       "destination": "/pages/contact.html"
     }
   ],
+
   "cleanUrls": true
 }
