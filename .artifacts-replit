@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "AlbA Trading Co., Ltd"
+version = "1.0.0"
+id = "artifacts/website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19161
+
+[services.development]
+run = "npm --prefix artifacts/website install --silent && npm --prefix artifacts/website run dev"
+
+[services.production]
+build = [ "sh", "-c", "npm --prefix artifacts/website install && npm --prefix artifacts/website run build" ]
+serve = "static"
+publicDir = "artifacts/website/dist"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19161"
+BASE_PATH = "/"
